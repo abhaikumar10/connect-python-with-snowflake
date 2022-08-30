@@ -26,3 +26,4 @@ loc= 'downloads\data '+tt+'.csv'
 #writing data to external file as csv via pandas.
 dataout=pd.DataFrame(data,columns=names)         #converting output to pd df adding column names as well.
 dataout.to_csv(loc,index=0)
+print('Export done, check downloads.')
