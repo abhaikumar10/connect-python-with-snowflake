@@ -9,10 +9,24 @@ con = snowflake.connector.connect(
     account="ex. am464376.ap-southeast-2", #Add all of the account-name between https:// and snowflakecomputing.com   ex. am62976.ap-southeast-2
     authenticator="externalbrowser", 
     )
+    
+  """ 
+#for ligin using id & password
+conn = snowflake.connector.connect(
+                user=USER,
+                password=PASSWORD,
+                account=ACCOUNT,
+                warehouse=WAREHOUSE,
+                database=DATABASE,
+                schema=SCHEMA
+                )
+"""  
+    
+    
 cur = con.cursor()
 
 #executing sql query
-f = open("py\code.sql",'r')                       #reading Sql from file, alternativelly use below inline code.     
+f = open("code.sql",'r')                       #reading Sql from file, alternativelly use below inline code.     
 sql=f.read()                                      #sql= "select current_date"
 cur.execute(sql)
 names = [ x[0] for x in cur.description]          #pulling column names from discription of Snowflake output.
